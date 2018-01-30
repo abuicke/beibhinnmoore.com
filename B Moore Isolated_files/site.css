@@ -13774,9 +13774,6 @@ html:not(.touch) #topBar,html:not(.touch) #bottomBar,html:not(.touch) #grid img,
     content:'Menu'
 }
 @media screen and (max-width:639px){
-    #navigator header#topBar ul#nav{
-        display:none
-    }
     #mobile-navigation{
         display:block
     }
