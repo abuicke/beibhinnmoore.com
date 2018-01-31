@@ -1,1 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis');
+@import url('https://fonts.googleapis.com/css?family=Montserrat'); 
+
+#title {
+    color: #2e2e2e;
+    float: right;
+    text-align: right;
+    padding-right: 35px;
+    font-size: 28px;
+    font-family: Dosis;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1em;
+    letter-spacing: 0.0714286em;
+}
+
+#subtitle {
+    font-size: 12px;
+    font-family: Montserrat;
+    font-weight: 400;
+    line-height: 1em;
+    letter-spacing: 0px;
+    margin: .75em 0 0;
+    color: #999;
+    display: block;
+}
