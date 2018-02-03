@@ -81,16 +81,9 @@ nav #selected, nav a:hover, nav a:active {
 
 /* IMAGES */
 
-.grid_element {
-    display: inline-block;
-    width: 200px;
-    height:200px;
-    zoom: 1;         /* for IE */
-    display*:inline; /* for IE */
-}
-
 img {
     max-width: 33.33%;
+    vertical-align: top;
 }
 
 #gallery {
