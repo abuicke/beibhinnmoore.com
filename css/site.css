@@ -86,6 +86,16 @@ img {
     vertical-align: top;
 }
 
+img#eight {
+    position: relative;
+    bottom: 75px;
+}
+
+img#nine {
+    position: relative;
+    bottom: 225px;
+}
+
 #gallery {
     display: block;
     clear: both;
