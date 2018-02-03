@@ -6,9 +6,10 @@ $(document).ready(function(){
         var css = get_css(i)
         console.log(css)
         $('<img/>')
+            .addClass("grid-element")
             .attr('src', './images/' + i + '.jpg')
-//            .attr('width', '440')
-//            .css(css)
+        //            .attr('width', '440')
+        //            .css(css)
             .appendTo('#gallery');
     }
 });
