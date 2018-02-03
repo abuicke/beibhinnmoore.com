@@ -11,6 +11,10 @@ html, body {
 
 /* MAIN NAVIGATION */
 
+nav {
+    padding-top: 7px;
+}
+
 nav ul {
     list-style: none;
     list-style-image: none;
@@ -21,11 +25,14 @@ nav li {
     margin: 0 1.5em 10px 0;
 }
 
-nav a:link, nav a:visited {
-    color: #8a8a8a;
+nav a {
     text-decoration: none;
     font-family: Montserrat;
-    font-size: 15px;
+    font-size: 14px;   
+}
+
+nav a:link, nav a:visited {
+    color: #8a8a8a;
 }
 
 nav #selected, nav a:hover, nav a:active {
@@ -59,6 +66,7 @@ nav #selected, nav a:hover, nav a:active {
     font-style: normal;
     line-height: 1em;
     letter-spacing: 0.0714286em;
+    margin-bottom: 15px;
 }
 
 #subtitle {
