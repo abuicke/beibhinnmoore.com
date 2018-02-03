@@ -18,6 +18,7 @@ nav {
 nav ul {
     list-style: none;
     list-style-image: none;
+    padding-left: 35px;
 }
 
 nav li {
