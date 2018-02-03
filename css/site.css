@@ -1,9 +1,45 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis');
 @import url('https://fonts.googleapis.com/css?family=Montserrat'); 
 
-.header {
+/* MAIN NAVIGATION */
+
+nav ul {
+    list-style: none;
+    list-style-image: none;
+}
+
+nav li {
+    display: inline;
+    margin: 0 1.5em 10px 0;
+}
+
+nav a {
+    color: #222;
+    text-decoration: none;
+    font-family: Montserrat;
+    font-size: 15px;
+}
+
+nav li#selected {
+    font-weight: bold;
+    border-bottom:1px solid black;
+    padding-bottom:2px;
+}
+
+/* HEADER */
+
+#header {
+    display: block;
+}
+
+#header-left {
+    float: left;
+}
+
+#header-right {
     float: right;
-    padding-right: 35px;
+    margin-right: 35px;
+    margin-bottom: 35px;
 }
 
 #title {
@@ -17,9 +53,29 @@
 }
 
 #subtitle {
-    font-size: 13px;
     font-family: Montserrat;
+    font-size: 13px;
     line-height: 1em;
     color: #999;
     text-align: right;
+}
+
+/* IMAGES */
+
+img {
+    max-width: 30%;
+    height: auto;
+}
+
+#gallery {
+    display: block;
+    clear: both;
+}
+
+/* MOBILE RULES */
+
+@media only screen and (max-width: 600px) {
+    img {
+        max-width: 100px;
+    }
 }
