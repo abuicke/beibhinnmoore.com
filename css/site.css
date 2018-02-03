@@ -97,6 +97,11 @@ img {
     clear: both;
 }
 
+.row {
+/*    Workaround to remove whitespace between images.*/
+    font-size: 0;
+}
+
 /* MOBILE RULES */
 
 @media only screen and (max-width: 600px) {
