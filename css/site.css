@@ -84,19 +84,8 @@ nav #selected, nav a:hover, nav a:active {
 img {
     max-width: 33.33%;
     vertical-align: top;
-}
-
-/*
-img#eight {
     position: relative;
-    bottom: 75px;
 }
-
-img#nine {
-    position: relative;
-    bottom: 225px;
-}
-*/
 
 #gallery {
     display: block;
