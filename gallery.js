@@ -1,28 +1,30 @@
-$(document).ready(function(){
-    var containerWidth = $('#gallery').width();
-    //    alert("width = " + getContainerWidth())
+$(document).ready(function() {
 
-    for (i = 1; i <= 13; i++) {
-        var css = get_css(i)
-        console.log(css)
-        $('<img/>')
-            .addClass("grid-element")
-            .attr('src', './images/' + i + '.jpg')
-        //            .attr('width', '440')
-        //            .css(css)
-            .appendTo('#gallery');
+    var imgCnt = 13;
+
+    for (i = 1; i <= imgCnt; i++) {
+
+        var row = Math.ceil(i/3);
+
+        if(i % 3 === 1) {
+            $('<div class="row" id="row-' + row + '"></div>')
+                .appendTo('#gallery');
+        }
+
+        $('<a href="images/' + i + '.jpg" target="_blank"><img src="images/' + i + '.jpg"/></a>')
+            .appendTo('#row-' + row);
+
+        // Wait for images to load.
+        $(window).on("load", function() {
+            var rowDiv = $('#row-1');
+            console.log("1: row " + 1 + " height " + rowDiv.height());
+        })
     }
+
+//    // Wait for images to load.
+//    $(window).on("load", function() {
+//        var rowDiv = $('#row-1');
+//        console.log("2: row " + 1 + " height " + rowDiv.height());
+//    })
+
 });
-
-function get_css(row) {
-    if(row % 3 === 1) {
-        console.log("left")
-        return {"left": "0", "position": "absolute"};
-    }else if(row % 3 === 2) {
-        console.log("middle")
-        return {"position": "relative"};
-    }else {
-        console.log("right")
-        return {"right": "0", "position": "absolute"};
-    }
-}
