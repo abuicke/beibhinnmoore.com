@@ -83,19 +83,11 @@ nav #selected, nav a:hover, nav a:active {
 
 img {
     max-width: 33.33%;
-    vertical-align: top;
-    position: relative;
 }
 
 #gallery {
     display: block;
     clear: both;
-}
-
-.row {
-    /* Workaround to remove 
-    whitespace between images. */
-    font-size: 0;
 }
 
 /* MOBILE RULES */
