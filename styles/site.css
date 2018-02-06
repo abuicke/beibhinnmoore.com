@@ -118,12 +118,6 @@ img {
     max-width: 50%;
 }
 
-#contact-section {
-    display: block;
-    float:right;
-    margin-right: 30%;
-}
-
 #about-title {
     font-weight: 100;
     color: #222;
@@ -134,6 +128,12 @@ img {
     font-weight: 100;
     line-height: 1.6em;
     color: #454545;
+}
+
+#contact-section {
+    display: block;
+    float: right;
+    margin-right: 20%;
 }
 
 #contact-title {
