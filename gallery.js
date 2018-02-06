@@ -1,8 +1,12 @@
 $(document).ready(function() {
 
-    $('.grid').masonry({
-        itemSelector: '.grid-item',
-        columnWidth: 0
+    $(window).on("load", function() {
+
+        $('.grid').masonry({
+            itemSelector: '.grid-item',
+            columnWidth: 0
+        }); 
+
     });
 
 });
