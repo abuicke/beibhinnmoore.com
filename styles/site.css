@@ -81,7 +81,7 @@ nav #selected, nav a:hover, nav a:active {
 /* IMAGES */
 
 img {
-    max-width: 33.33%;
+    width: 33.33%;
 }
 
 #gallery {
