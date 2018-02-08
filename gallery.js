@@ -27,11 +27,11 @@ function loadImages(firstImage, lastImage) {
 function loadImage(index, f) {
     $('#image-' + index)
         .attr("src", "images/" + index + ".jpg")
-        .one('load', f); 
+        .on('load', f); 
 }
 
 function loadPlaceholder(index, f) {
     $('#image-' + index)
         .attr("src", "images/placeholders/" + index + ".jpg")
-        .one('load', f);
+        .on('load', f);
 }
