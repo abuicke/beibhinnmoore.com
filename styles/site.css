@@ -173,3 +173,30 @@ img {
     letter-spacing: 0.01px;
     font-weight: 600;
 }
+
+/* ABOUT MOBILE RULES */
+
+@media only screen and (max-width: 640px) {
+
+/*
+    #container {
+        display: block;
+        clear: both;
+        max-width: 80%;
+        margin: auto;
+    }
+*/
+
+    #about-section {
+        float: none;
+        max-width: 100%;
+    }
+    
+    #about-body {
+
+    }
+
+    #contact-section {
+        float: none;
+    }
+}
