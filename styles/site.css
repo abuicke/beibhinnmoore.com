@@ -24,7 +24,7 @@ nav ul {
 
 nav li {
     display: inline;
-    margin: 0 1.5em 10px 0;
+    margin: 0 0.75em 10px 0.75em;
 }
 
 nav a {
@@ -82,6 +82,10 @@ nav #selected, nav a:hover, nav a:active {
 
 @media only screen and (max-width: 640px) {
 
+    nav ul {
+        padding-left: 0;
+    }
+    
     #header-left {
         float: none;
         text-align: center;
@@ -176,7 +180,7 @@ img {
 
 /* ABOUT MOBILE RULES */
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 652px) {
     
     #about-section {
         float: none;
