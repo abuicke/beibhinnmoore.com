@@ -1,11 +1,11 @@
 $(document).ready(function() {
-    
+
     $(window).on('load', function() {
         $('.grid').masonry({
             itemSelector: '.grid-item',
             columnWidth: 0
         });
-        
+
         loadImages(1, 41);
     });
 });
@@ -25,11 +25,9 @@ function loadImages(firstImage, lastImage) {
 }
 
 function loadImage(index, f) {
-    setTimeout(function() {
-        $('#image-' + index)
-            .attr("src", "images/" + index + ".jpg")
-            .on('load', f); 
-    }, 2000);
+    $('#image-' + index)
+        .attr("src", "images/" + index + ".jpg")
+        .on('load', f); 
 }
 
 function loadPlaceholder(index, f) {
