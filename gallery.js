@@ -29,9 +29,3 @@ function loadImage(index, f) {
         .attr("src", "images/" + index + ".jpg")
         .on('load', f); 
 }
-
-function loadPlaceholder(index, f) {
-    $('#image-' + index)
-        .attr("src", "images/placeholders/" + index + ".jpg")
-        .on('load', f);
-}
