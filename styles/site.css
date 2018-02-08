@@ -78,6 +78,31 @@ nav #selected, nav a:hover, nav a:active {
     margin-bottom: 0;
 }
 
+/* HEADER MOBILE RULES */
+
+@media only screen and (max-width: 640px) {
+
+    #header-left {
+        float: none;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    #header-right {
+        float: none;
+        margin: 0;
+        padding-bottom: 10px;
+    }
+
+    #title {
+        text-align: center;
+    }
+
+    #subtitle {
+        text-align: center;
+    }
+}
+
 /* IMAGES */
 
 img {
@@ -89,7 +114,7 @@ img {
     clear: both;
 }
 
-/* MOBILE RULES */
+/*  IMAGES MOBILE RULES */
 
 @media only screen and (max-width: 640px) {
     img {
