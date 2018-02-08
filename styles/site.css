@@ -177,26 +177,15 @@ img {
 /* ABOUT MOBILE RULES */
 
 @media only screen and (max-width: 640px) {
-
-/*
-    #container {
-        display: block;
-        clear: both;
-        max-width: 80%;
-        margin: auto;
-    }
-*/
-
+    
     #about-section {
         float: none;
         max-width: 100%;
-    }
-    
-    #about-body {
-
+        margin-bottom: 25px;
     }
 
     #contact-section {
         float: none;
+        margin-bottom: 50px;
     }
 }
