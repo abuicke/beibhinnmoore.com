@@ -1,12 +1,12 @@
 $(document).ready(function() {
 
     $(window).on('load', function() {
-        $('.grid').masonry({
+        $('.grid').one('layoutComplete', function() {
+            loadImages(1, 41);
+        }).masonry({
             itemSelector: '.grid-item',
             columnWidth: 0
         });
-
-        loadImages(1, 41);
     });
 });
 
