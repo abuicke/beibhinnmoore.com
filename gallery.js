@@ -1,7 +1,9 @@
 $(document).ready(function() {
-
+    console.log("document ready");
     $(window).on('load', function() {
+        console.log("window loaded");
         $('.grid').one('layoutComplete', function() {
+            console.log("layout complete");
             loadImages(1, 41);
         }).masonry({
             itemSelector: '.grid-item',
@@ -11,7 +13,6 @@ $(document).ready(function() {
 });
 
 function loadImages(firstImage, lastImage) {
-
     loadImage(firstImage, func = function() {
         $('.grid').masonry({
             itemSelector: '.grid-item',
