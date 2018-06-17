@@ -10,6 +10,18 @@
         <link rel="canonical" href="http://beibhinnmoore.com/"/>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script>
+            $(document).ready(function() {
+                $(window).on('load', function() {
+                    $('.grid').one('layoutComplete', function() {
+                        loadImages(1, 41)
+                    }).masonry({
+                        itemSelector: '.grid-item',
+                        columnWidth: 0
+                    });
+                });
+            });
+        </script>
     </head>
     <body>
         <header>
