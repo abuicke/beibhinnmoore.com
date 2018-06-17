@@ -3,12 +3,12 @@ function loadImages(firstImage, lastImage) {
         $('.grid').masonry({
             itemSelector: '.grid-item',
             columnWidth: 0
-        });
+        })
 
         if(firstImage < lastImage){
             loadImage(++firstImage, func)
         }
-    });
+    })
 }
 
 function loadImage(index, f) {
@@ -27,7 +27,7 @@ function loadPhotography(firstPhoto, lastPhoto) {
         if(firstPhoto < lastPhoto){
             loadPhoto(++firstPhoto, func)
         }
-    });
+    })
 }
 
 function loadPhoto(index, f) {
