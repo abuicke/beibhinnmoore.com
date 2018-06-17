@@ -11,6 +11,18 @@
         <link rel="canonical" href="http://beibhinnmoore.com/"/>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            $(document).ready(function() {
+                $(window).on('load', function() {
+                    $('.grid').one('layoutComplete', function() {
+                        loadImages(1, 41)
+                    }).masonry({
+                        itemSelector: '.grid-item',
+                        columnWidth: 0
+                    });
+                });
+            });
+        </script>
     </head>
     <body>
         <header>
@@ -18,8 +30,12 @@
                 <div id="header-left">
                     <nav>
                         <ul>
-                            <li><a href="https://beibhinnmoore.com/" id="selected">WORK</a></li>
-                            <li><a href="./about.html">ABOUT</a></li>
+                            <li>
+                                <a href="https://beibhinnmoore.com/" id="selected">WORK</a>
+                            </li>
+                            <li>
+                                <a href="./about.html">ABOUT</a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
