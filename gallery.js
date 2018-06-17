@@ -6,7 +6,7 @@ function loadImages(firstImage, lastImage) {
         });
 
         if(firstImage < lastImage){
-            loadImage(++firstImage, func);
+            loadImage(++firstImage, func)
         }
     });
 }
@@ -14,5 +14,24 @@ function loadImages(firstImage, lastImage) {
 function loadImage(index, f) {
     $('#image-' + index)
         .attr("src", "images/" + index + ".jpg")
-        .on('load', f); 
+        .on('load', f)
+}
+
+function loadPhotography(firstPhoto, lastPhoto) {
+    loadPhoto(firstPhoto, func = function() {
+        $('.grid').masonry({
+            itemSelector: '.grid-item',
+            columnWidth: 0
+        });
+
+        if(firstPhoto < lastPhoto){
+            loadPhoto(++firstPhoto, func)
+        }
+    });
+}
+
+function loadPhoto(index, f) {
+    $('#photo-' + index)
+        .attr("src", "photography/" + index + ".jpg")
+        .on('load', f)
 }
