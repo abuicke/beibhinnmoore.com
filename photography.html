@@ -13,15 +13,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
             $(document).ready(function() {
+                const startIndex = 1
+                const lastIndex = 32
+
+                var galleryDiv = document.getElementById("gallery")
+
+                for(var i = startIndex; i < lastIndex; i++) {
+                    var anchor = document.createElement('a')
+                    anchor.href = "photography/" + i + ".jpg"
+                    anchor.target = "_blank"
+
+                    var img  = document.createElement('img')
+                    img.className = "grid-item"
+                    img.id = "photo-" + i
+                    img.src = "photography/placeholders/" + i
+
+                    anchor.appendChild(img)
+                    galleryDiv.appendChild(anchor)
+                }
+
                 $(window).on('load', function() {
                     $('.grid').one('layoutComplete', function() {
-                        loadPhotography(1, 14)
+                        loadPhotography(startIndex, lastIndex)
                     }).masonry({
                         itemSelector: '.grid-item',
                         columnWidth: 0
-                    });
-                });
-            });
+                    })
+                })
+            })
         </script>
     </head>
     <body>
@@ -42,49 +61,6 @@
                 </div>
             </div>
         </header>
-        <div class="grid" id="gallery">
-            <a href="photography/1.jpg" target="_blank">
-                <img class="grid-item" id="photo-1" src="photography/placeholders/1.jpg"/>
-            </a>
-            <a href="photography/2.jpg" target="_blank">
-                <img class="grid-item" id="photo-2" src="photography/placeholders/2.jpg"/>
-            </a>
-            <a href="photography/3.jpg" target="_blank">
-                <img class="grid-item" id="photo-3" src="photography/placeholders/3.jpg"/>
-            </a>
-            <a href="photography/4.jpg" target="_blank">
-                <img class="grid-item" id="photo-4" src="photography/placeholders/4.jpg"/>
-            </a>
-            <a href="photography/5.jpg" target="_blank">
-                <img class="grid-item" id="photo-5" src="photography/placeholders/5.jpg"/>
-            </a>
-            <a href="photography/6.jpg" target="_blank">
-                <img class="grid-item" id="photo-6" src="photography/placeholders/6.jpg"/>
-            </a>
-            <a href="photography/7.jpg" target="_blank">
-                <img class="grid-item" id="photo-7" src="photography/placeholders/7.jpg"/>
-            </a>
-            <a href="photography/8.jpg" target="_blank">
-                <img class="grid-item" id="photo-8" src="photography/placeholders/8.jpg"/>
-            </a>
-            <a href="photography/9.jpg" target="_blank">
-                <img class="grid-item" id="photo-9" src="photography/placeholders/9.jpg"/>
-            </a>
-            <a href="photography/10.jpg" target="_blank">
-                <img class="grid-item" id="photo-10" src="photography/placeholders/10.jpg"/>
-            </a>
-            <a href="photography/11.jpg" target="_blank">
-                <img class="grid-item" id="photo-11" src="photography/placeholders/11.jpg"/>
-            </a>
-            <a href="photography/12.jpg" target="_blank">
-                <img class="grid-item" id="photo-12" src="photography/placeholders/12.jpg"/>
-            </a>
-            <a href="photography/13.jpg" target="_blank">
-                <img class="grid-item" id="photo-13" src="photography/placeholders/13.jpg"/>
-            </a>
-            <a href="photography/14.jpg" target="_blank">
-                <img class="grid-item" id="photo-14" src="photography/placeholders/14.jpg"/>
-            </a>
-        </div>
+        <div class="grid" id="gallery"/>
     </body>
 </html>
