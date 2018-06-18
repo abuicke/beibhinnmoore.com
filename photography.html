@@ -2,9 +2,7 @@
 <html lang="en">
     <head>
         <title>B Moore</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-        <script src="gallery.js"></script>
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
         <link rel="manifest" href="./manifest.webmanifest">
@@ -12,34 +10,59 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
-            $(document).ready(function() {
-                const startIndex = 1
-                const lastIndex = 32
+            document.addEventListener("DOMContentLoaded", function() {
+                window.onload = function() {
+                    const firstIndex = 1
+                    const lastIndex = 32
 
-                var galleryDiv = document.getElementById("gallery")
+                    const $gallery = document.getElementById("gallery")
 
-                for(var i = startIndex; i < lastIndex; i++) {
-                    var anchor = document.createElement('a')
-                    anchor.href = "photography/" + i + ".jpg"
-                    anchor.target = "_blank"
-
-                    var img  = document.createElement('img')
-                    img.className = "grid-item"
-                    img.id = "photo-" + i
-                    img.src = "photography/placeholders/" + i + ".jpg"
-
-                    anchor.appendChild(img)
-                    galleryDiv.appendChild(anchor)
-                }
-
-                $(window).on('load', function() {
-                    $('.grid').one('layoutComplete', function() {
-                        loadPhotography(startIndex, lastIndex)
-                    }).masonry({
+                    const masonry = new Masonry($gallery, {
                         itemSelector: '.grid-item',
                         columnWidth: 0
+                    }).once('layoutComplete', function() {  
+                        const $imgs = document.getElementsByClassName('grid-item')
+                        var i = 0
+                        var photo = 1
+
+                        $imgs[i].onload = function onload() {
+                            $imgs[i].removeEventListener('load', onload)
+                            if(++i < $imgs.length) {
+                                $imgs[i].src = "photography/" + photo++ + ".jpg"
+                                $imgs[i].addEventListener('load', onload)
+
+                                masonry.reloadItems()
+                                masonry.layout()
+                            }
+                        }
+
+                        $imgs[i].src = "photography/" + photo++ + ".jpg"
                     })
-                })
+
+                    var imgsLoaded = 0
+
+                    for(var i = firstIndex; i < lastIndex; i++) {
+                        const $a = document.createElement('a')
+                        $a.href = "photography/" + i + ".jpg"
+                        $a.target = "_blank"
+
+                        const $img  = document.createElement('img')
+                        $img.className = "grid-item"
+                        $img.id = "photo-" + i
+                        $img.src = "photography/placeholders/" + i + ".jpg"
+
+                        $img.onload = function onload() {
+                            if(++imgsLoaded === (lastIndex - firstIndex)) {
+                                masonry.reloadItems()
+                                masonry.layout()
+                            }
+                            $img.removeEventListener('load', onload)
+                        }
+
+                        $a.appendChild($img)
+                        $gallery.appendChild($a)
+                    }
+                }
             })
         </script>
     </head>
