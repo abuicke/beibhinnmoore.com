@@ -1,16 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>B Moore Isolated</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <title>B Moore</title>
         <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-        <script src="gallery.js"></script>
-        <link rel="stylesheet" type="text/css" href="styles/site.css">
+        <link rel="stylesheet" type="text/css" href="styles.css">
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
         <link rel="manifest" href="./manifest.webmanifest">
         <link rel="canonical" href="http://beibhinnmoore.com/"/>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                window.onload = function() {
+                    const firstIndex = 1
+                    const lastIndex = 41
+
+                    const $gallery = document.getElementById("gallery")
+
+                    const masonry = new Masonry($gallery, {
+                        itemSelector: '.grid-item',
+                        columnWidth: 0
+                    }).once('layoutComplete', function() {  
+                        const $imgs = document.getElementsByClassName('grid-item')
+                        var i = 0
+                        var image = 1
+
+                        $imgs[i].onload = function onload() {
+                            $imgs[i].removeEventListener('load', onload)
+                            if(++i < $imgs.length) {
+                                $imgs[i].src = "images/" + image++ + ".jpg"
+                                $imgs[i].addEventListener('load', onload)
+
+                                masonry.reloadItems()
+                                masonry.layout()
+                            }
+                        }
+
+                        $imgs[i].src = "images/" + image++ + ".jpg"
+                    })
+
+                    var imgsLoaded = 0
+
+                    for(var i = firstIndex; i < lastIndex; i++) {
+                        const $a = document.createElement('a')
+                        $a.href = "images/" + i + ".jpg"
+                        $a.target = "_blank"
+
+                        const $img  = document.createElement('img')
+                        $img.className = "grid-item"
+                        $img.id = "image-" + i
+                        $img.src = "images/placeholders/" + i + ".jpg"
+
+                        $img.onload = function onload() {
+                            if(++imgsLoaded === (lastIndex - firstIndex)) {
+                                masonry.reloadItems()
+                                masonry.layout()
+                            }
+                            $img.removeEventListener('load', onload)
+                        }
+
+                        $a.appendChild($img)
+                        $gallery.appendChild($a)
+                    }
+                }
+            })
+        </script>
     </head>
     <body>
         <header>
@@ -22,55 +76,14 @@
                 <div id="header-left">
                     <nav>
                         <ul>
-                            <li><a href="https://beibhinnmoore.com/" id="selected">WORK</a></li>
+                            <li><a href="./index.html" id="selected">WORK</a></li>
+                            <li><a href="./photography.html">PHOTOGRAPHY</a></li>
                             <li><a href="./about.html">ABOUT</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </header>
-        <div class="grid" id="gallery">
-            <a href="images/1.jpg" target="_blank"><img class="grid-item" id="image-1" src="images/placeholders/1.jpg"/></a>
-            <a href="images/2.jpg" target="_blank"><img class="grid-item" id="image-2" src="images/placeholders/2.jpg"/></a>
-            <a href="images/3.jpg" target="_blank"><img class="grid-item" id="image-3" src="images/placeholders/3.jpg"/></a>
-            <a href="images/4.jpg" target="_blank"><img class="grid-item" id="image-4" src="images/placeholders/4.jpg"/></a>
-            <a href="images/5.jpg" target="_blank"><img class="grid-item" id="image-5" src="images/placeholders/5.jpg"/></a>
-            <a href="images/6.jpg" target="_blank"><img class="grid-item" id="image-6" src="images/placeholders/6.jpg"/></a>
-            <a href="images/7.jpg" target="_blank"><img class="grid-item" id="image-7" src="images/placeholders/7.jpg"/></a>
-            <a href="images/8.jpg" target="_blank"><img class="grid-item" id="image-8" src="images/placeholders/8.jpg"/></a>
-            <a href="images/9.jpg" target="_blank"><img class="grid-item" id="image-9" src="images/placeholders/9.jpg"/></a>
-            <a href="images/10.jpg" target="_blank"><img class="grid-item" id="image-10" src="images/placeholders/10.jpg"/></a>
-            <a href="images/11.jpg" target="_blank"><img class="grid-item" id="image-11" src="images/placeholders/11.jpg"/></a>
-            <a href="images/12.jpg" target="_blank"><img class="grid-item" id="image-12" src="images/placeholders/12.jpg"/></a>
-            <a href="images/13.jpg" target="_blank"><img class="grid-item" id="image-13" src="images/placeholders/13.jpg"/></a>
-            <a href="images/14.jpg" target="_blank" ><img class="grid-item" id="image-14" src="images/placeholders/14.jpg"/></a>
-            <a href="images/15.jpg" target="_blank" ><img class="grid-item" id="image-15" src="images/placeholders/15.jpg"/></a>
-            <a href="images/16.jpg" target="_blank" ><img class="grid-item" id="image-16" src="images/placeholders/16.jpg"/></a>
-            <a href="images/17.jpg" target="_blank" ><img class="grid-item" id="image-17" src="images/placeholders/17.jpg"/></a>
-            <a href="images/18.jpg" target="_blank" ><img class="grid-item" id="image-18" src="images/placeholders/18.jpg"/></a>
-            <a href="images/19.jpg" target="_blank" ><img class="grid-item" id="image-19" src="images/placeholders/19.jpg"/></a>
-            <a href="images/20.jpg" target="_blank"><img class="grid-item" id="image-20" src="images/placeholders/20.jpg"/></a>
-            <a href="images/21.jpg" target="_blank"><img class="grid-item" id="image-21" src="images/placeholders/21.jpg"/></a>
-            <a href="images/22.jpg" target="_blank"><img class="grid-item" id="image-22" src="images/placeholders/22.jpg"/></a>
-            <a href="images/23.jpg" target="_blank"><img class="grid-item" id="image-23" src="images/placeholders/23.jpg"/></a>
-            <a href="images/24.jpg" target="_blank"><img class="grid-item" id="image-24" src="images/placeholders/24.jpg"/></a>
-            <a href="images/25.jpg" target="_blank"><img class="grid-item" id="image-25" src="images/placeholders/25.jpg"/></a>
-            <a href="images/26.jpg" target="_blank"><img class="grid-item" id="image-26" src="images/placeholders/26.jpg"/></a>
-            <a href="images/27.jpg" target="_blank"><img class="grid-item" id="image-27" src="images/placeholders/27.jpg"/></a>
-            <a href="images/28.jpg" target="_blank"><img class="grid-item" id="image-28" src="images/placeholders/28.jpg"/></a>
-            <a href="images/29.jpg" target="_blank"><img class="grid-item" id="image-29" src="images/placeholders/29.jpg"/></a>
-            <a href="images/30.jpg" target="_blank"><img class="grid-item" id="image-30" src="images/placeholders/30.jpg"/></a>
-            <a href="images/31.jpg" target="_blank"><img class="grid-item" id="image-31" src="images/placeholders/31.jpg"/></a>
-            <a href="images/32.jpg" target="_blank"><img class="grid-item" id="image-32" src="images/placeholders/32.jpg"/></a>
-            <a href="images/33.jpg" target="_blank"><img class="grid-item" id="image-33" src="images/placeholders/33.jpg"/></a>
-            <a href="images/34.jpg" target="_blank"><img class="grid-item" id="image-34" src="images/placeholders/34.jpg"/></a>
-            <a href="images/35.jpg" target="_blank"><img class="grid-item" id="image-35" src="images/placeholders/35.jpg"/></a>
-            <a href="images/36.jpg" target="_blank"><img class="grid-item" id="image-36" src="images/placeholders/36.jpg"/></a>
-            <a href="images/37.jpg" target="_blank"><img class="grid-item" id="image-37" src="images/placeholders/37.jpg"/></a>
-            <a href="images/38.jpg" target="_blank"><img class="grid-item" id="image-38" src="images/placeholders/38.jpg"/></a>
-            <a href="images/39.jpg" target="_blank"><img class="grid-item" id="image-39" src="images/placeholders/39.jpg"/></a>
-            <a href="images/40.jpg" target="_blank"><img class="grid-item" id="image-40" src="images/placeholders/40.jpg"/></a>
-            <a href="images/41.jpg" target="_blank"><img class="grid-item" id="image-41" src="images/placeholders/41.jpg"/></a>
-        </div>
+        <div class="grid" id="gallery" />
     </body>
 </html>

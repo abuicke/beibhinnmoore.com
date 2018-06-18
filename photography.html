@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>B Moore</title>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="manifest" href="./manifest.webmanifest">
+        <link rel="canonical" href="http://beibhinnmoore.com/"/>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                window.onload = function() {
+                    const firstIndex = 1
+                    const lastIndex = 32
+
+                    const $gallery = document.getElementById("gallery")
+
+                    const masonry = new Masonry($gallery, {
+                        itemSelector: '.grid-item',
+                        columnWidth: 0
+                    }).once('layoutComplete', function() {  
+                        const $imgs = document.getElementsByClassName('grid-item')
+                        var i = 0
+                        var photo = 1
+
+                        $imgs[i].onload = function onload() {
+                            $imgs[i].removeEventListener('load', onload)
+                            if(++i < $imgs.length) {
+                                $imgs[i].src = "photography/" + photo++ + ".jpg"
+                                $imgs[i].addEventListener('load', onload)
+
+                                masonry.reloadItems()
+                                masonry.layout()
+                            }
+                        }
+
+                        $imgs[i].src = "photography/" + photo++ + ".jpg"
+                    })
+
+                    var imgsLoaded = 0
+
+                    for(var i = firstIndex; i < lastIndex; i++) {
+                        const $a = document.createElement('a')
+                        $a.href = "photography/" + i + ".jpg"
+                        $a.target = "_blank"
+
+                        const $img  = document.createElement('img')
+                        $img.className = "grid-item"
+                        $img.id = "photo-" + i
+                        $img.src = "photography/placeholders/" + i + ".jpg"
+
+                        $img.onload = function onload() {
+                            if(++imgsLoaded === (lastIndex - firstIndex)) {
+                                masonry.reloadItems()
+                                masonry.layout()
+                            }
+                            $img.removeEventListener('load', onload)
+                        }
+
+                        $a.appendChild($img)
+                        $gallery.appendChild($a)
+                    }
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <header>
+            <div id="header">
+                <div id="header-right">
+                    <h1 id="title">B MOORE</h1>
+                    <h2 id="subtitle">B abeour B awhore B Moore</h2>
+                </div>
+                <div id="header-left">
+                    <nav>
+                        <ul>
+                            <li><a href="./index.html">WORK</a></li>
+                            <li><a href="./photography.html" id="selected">PHOTOGRAPHY</a></li>
+                            <li><a href="./about.html">ABOUT</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="grid" id="gallery"/>
+    </body>
+</html>
